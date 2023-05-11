@@ -8,12 +8,15 @@ class StatusChangeTileBuilder {
     required int itemCount,
     IndexedWidgetBuilder? nameWidgetBuilder,
     IndexedWidgetBuilder? contentWidgetBuilder,
+    double? spaceWithVertical,
     IndexedWidgetBuilder? indicatorWidgetBuilder,
     Function(int index)? lineWidgetBuilder,
     Function(int index)? itemWidth,
   }) {
+    print('StatusChangeTileBuilder.connected');
     return StatusChangeTileBuilder(
       itemCount: itemCount,
+      spaceWithVertical: spaceWithVertical,
       contentsBuilder: nameWidgetBuilder,
       oppositeContentsBuilder: contentWidgetBuilder,
       indicatorBuilder: indicatorWidgetBuilder,
@@ -35,6 +38,7 @@ class StatusChangeTileBuilder {
     IndexedWidgetBuilder? indicatorBuilder,
     IndexedWidgetBuilder? startConnectorBuilder,
     IndexedWidgetBuilder? endConnectorBuilder,
+    double? spaceWithVertical,
     Function(int index)? itemExtentBuilder,
     Function(int index)? nodePositionBuilder,
     Function(int index)? nodeItemOverlapBuilder,
@@ -52,6 +56,7 @@ class StatusChangeTileBuilder {
       (context, index) {
         final tile = StatusChangeTile(
           mainAxisExtent: itemExtentBuilder?.call(index),
+          spaceWithVertical: spaceWithVertical,
           node: TimelineNode(
             startConnector: startConnectorBuilder?.call(context, index),
             endConnector: endConnectorBuilder?.call(context, index),

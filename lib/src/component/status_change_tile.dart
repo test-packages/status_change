@@ -23,6 +23,7 @@ class StatusChangeTile extends StatelessWidget {
     this.nodeAlign = StatusChangeNodeAlign.basic,
     this.nodePosition,
     this.contents,
+    this.spaceWithVertical,
     this.oppositeContents,
     this.mainAxisExtent,
     this.crossAxisExtent,
@@ -44,6 +45,7 @@ class StatusChangeTile extends StatelessWidget {
   final StatusChangeNodeAlign nodeAlign;
 
   final double? nodePosition;
+  final double? spaceWithVertical;
 
   final Widget? contents;
 
@@ -83,6 +85,7 @@ class StatusChangeTile extends StatelessWidget {
             child: oppositeContents ?? SizedBox.shrink(),
           ),
         ),
+      if (spaceWithVertical != null) SizedBox(height: spaceWithVertical),
       ConstrainedBox(
         constraints: BoxConstraints(
           minWidth: direction == Axis.vertical ? minNodeExtent : 0.0,
